@@ -25,12 +25,14 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Right side */}
+      <br />
       <div className="w-full md:w-1/2 bg-inherit p-6 md:flex md:items-center">
         <img
           src="/computer-sticker.png"
           alt="Computer Sticker"
           className="md:max-w-full md:h-auto mx-auto"
         />
+        <br />
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import Tech from "./components/Tech";
 import Feedback from "./components/Feedback";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Works from "./components/Works";
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         <About />
         <Experience />
         <Tech />
+        <Works />
         <Feedback />
         <Contact />
         <Footer />

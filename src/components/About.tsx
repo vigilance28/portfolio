@@ -95,7 +95,7 @@ const ServiceCard: React.FC<{ index: number; title: string; icon: string }> = ({
 
 const About: React.FC = () => {
   return (
-    <div className="p-2">
+    <div className="p-2 mt-3">
       <motion.div variants={textVariant()}>
         <p className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">
           Introduction
