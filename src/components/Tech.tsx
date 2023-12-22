@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 import css from "../assets/tech/css.png";
 import docker from "../assets/tech/docker.png";
 import figma from "../assets/tech/figma.png";
@@ -13,8 +14,6 @@ import redux from "../assets/tech/redux.png";
 import tailwind from "../assets/tech/tailwind.png";
 import threejs from "../assets/tech/threejs.svg";
 import typescript from "../assets/tech/typescript.png";
-
-import Tilt from "react-parallax-tilt";
 
 const textVariant = (delay?: number) => {
   return {
@@ -58,15 +57,6 @@ const fadeIn = (
       },
     },
   };
-};
-
-type TiltProps = {
-  options: {
-    max: number;
-    scale: number;
-    speed: number;
-  };
-  className: string;
 };
 
 const techStack = [
@@ -125,25 +115,18 @@ const techStack = [
 ];
 
 const Tech: React.FC = () => {
-  const ServiceCard = ({ index, title, icon }) => (
-    <Tilt<TiltProps> className="xs:w-[250px] w-full">
+  const TechCard: React.FC<{ index: number; title: string; icon: string }> = ({
+    index,
+    title,
+    icon,
+  }) => (
+    <Tilt {...{ max: 45, scale: 1, speed: 450 }}>
       <motion.div
         variants={fadeIn("right", "spring", index * 0.5, 0.75)}
         className="w-full bg-[#0696a3] p-[1px] rounded-[20px] shadow-card"
       >
-        <div
-          options={{
-            max: 45,
-            scale: 1,
-            speed: 450,
-          }}
-          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-        >
-          <img
-            src={icon}
-            alt="web-development"
-            className="w-16 h-16 object-contain"
-          />
+        <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+          <img src={icon} alt={title} className="w-16 h-16 object-contain" />
           <h3 className="text-white text-[20px] font-bold text-center">
             {title}
           </h3>
@@ -151,6 +134,7 @@ const Tech: React.FC = () => {
       </motion.div>
     </Tilt>
   );
+
   return (
     <div className="p-2">
       <motion.div variants={textVariant()}>
@@ -166,11 +150,11 @@ const Tech: React.FC = () => {
       <motion.div
         variants={fadeIn("up", "spring", 0.1, 1)} // Adjust animation properties here
         initial="hidden" // Set the initial animation state
-        animate="show" // Set the target animation state+
+        animate="show" // Set the target animation state
         className="flex flex-row flex-wrap gap-10 mt-20 p-4"
       >
-        {techStack.map((techStack, index) => (
-          <ServiceCard key={techStack.title} index={index} {...techStack} />
+        {techStack.map((tech, index) => (
+          <TechCard key={tech.title} index={index} {...tech} />
         ))}
       </motion.div>
     </div>
@@ -178,5 +162,3 @@ const Tech: React.FC = () => {
 };
 
 export default Tech;
-
-// eslint-disable-next-line react-refresh/only-export-components

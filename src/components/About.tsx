@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 import backend from "../assets/backend.png";
 import web from "../assets/web.png";
 import mobile from "../assets/mobile.png";
 import artificialIntelligence from "../assets/artificalIntelligence.png";
-import Tilt from "react-parallax-tilt";
 
 const textVariant = (delay?: number) => {
   return {
@@ -69,42 +69,31 @@ const services = [
   },
 ];
 
-type TiltProps = {
-  options: {
-    max: number;
-    scale: number;
-    speed: number;
-  };
-  className: string;
-};
+const ServiceCard: React.FC<{ index: number; title: string; icon: string }> = ({
+  index,
+  title,
+  icon,
+}) => (
+  <Tilt {...{ max: 45, scale: 1, speed: 450 }}>
+    <motion.div
+      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+      className="w-full bg-[#0696a3] p-[1px] rounded-[20px] shadow-card"
+    >
+      <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+        <img
+          src={icon}
+          alt="web-development"
+          className="w-16 h-16 object-contain"
+        />
+        <h3 className="text-white text-[20px] font-bold text-center">
+          {title}
+        </h3>
+      </div>
+    </motion.div>
+  </Tilt>
+);
 
 const About: React.FC = () => {
-  const ServiceCard = ({ index, title, icon }) => (
-    <Tilt<TiltProps> className="xs:w-[250px] w-full">
-      <motion.div
-        variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-        className="w-full bg-[#0696a3] p-[1px] rounded-[20px] shadow-card"
-      >
-        <div
-          options={{
-            max: 45,
-            scale: 1,
-            speed: 450,
-          }}
-          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-        >
-          <img
-            src={icon}
-            alt="web-development"
-            className="w-16 h-16 object-contain"
-          />
-          <h3 className="text-white text-[20px] font-bold text-center">
-            {title}
-          </h3>
-        </div>
-      </motion.div>
-    </Tilt>
-  );
   return (
     <div className="p-2">
       <motion.div variants={textVariant()}>
@@ -118,9 +107,9 @@ const About: React.FC = () => {
       </motion.div>
 
       <motion.p
-        variants={fadeIn("up", "spring", 0.1, 1)} // Adjust animation properties here
-        initial="hidden" // Set the initial animation state
-        animate="show" // Set the target animation state
+        variants={fadeIn("up", "spring", 0.1, 1)}
+        initial="hidden"
+        animate="show"
         className="mt-4 text-secondary text-[20px] max-w-3xl leading-[30px]"
       >
         I'm a skilled software developer with experience in TypeScript, Python
@@ -132,9 +121,9 @@ const About: React.FC = () => {
       </motion.p>
 
       <motion.div
-        variants={fadeIn("up", "spring", 0.1, 1)} // Adjust animation properties here
-        initial="hidden" // Set the initial animation state
-        animate="show" // Set the target animation state+
+        variants={fadeIn("up", "spring", 0.1, 1)}
+        initial="hidden"
+        animate="show"
         className="flex flex-row flex-wrap gap-10 mt-20 p-4"
       >
         {services.map((service, index) => (
@@ -146,5 +135,3 @@ const About: React.FC = () => {
 };
 
 export default About;
-
-// eslint-disable-next-line react-refresh/only-export-components
