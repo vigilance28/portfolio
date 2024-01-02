@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/logo.svg";
 
 const Navbar: React.FC = () => {
@@ -27,9 +26,29 @@ const Navbar: React.FC = () => {
 
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="  w-full flex fixed top-0 sm:px-16 px-6 py-5 items-center z-20">
+    <nav
+      className={`w-full flex fixed top-0 sm:px-16 px-6 py-5 items-center z-20 ${
+        scrolled ? "bg-inherit/20 backdrop-blur-sm" : "bg-transparent"
+      }`}
+    >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           to="/"

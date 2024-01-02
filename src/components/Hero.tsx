@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
         </p>
 
         <p className=" font-medium lg:text-3xl sm:text-2xl xs:text-xl text-base lg:leading-40">
-          I'm a coder and a student at the University of Zimbabwe (UZ).
+          I'm a coder and a student at the University of Zimbabwe.
         </p>
 
         <p className="my-2 text-white-100">
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
           interfaces and Web Applications
         </p>
 
-        <button className="h-9 md:h-12 lg:h-14 md:w-1/2 lg:w-50 mx-auto md:mx-0 bg-indigo-400 border-2  rounded-full flex items-center justify-center px-4 md:px-8 font-bold text-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out hover:bg-indigo-500 hover:text-pink-100">
+        <button className="mt-5 h-9 md:h-12 lg:h-14 md:w-1/2 lg:w-50 mx-auto md:mx-0 bg-indigo-400 border-2  rounded-full flex items-center justify-center px-4 md:px-8 font-bold text-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out hover:bg-indigo-500 hover:text-pink-100">
           Get In Touch
         </button>
       </div>

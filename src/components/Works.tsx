@@ -15,7 +15,7 @@ const projects = [
     tags: [
       {
         name: "react",
-        color: "blue-text-gradient",
+        color: "blue",
       },
       {
         name: "mongodb",
@@ -130,12 +130,14 @@ const ProjectCard = ({
 
 const Works: React.FC = () => {
   return (
-    <>
+    <div className="items-center justify-center w-screen">
       <motion.div variants={textVariant()}>
         <p className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">
           My work
         </p>
-        <h2 className="">Projects.</h2>
+        <h2 className="text-[#0696a3] font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+          Projects.
+        </h2>
       </motion.div>
 
       <div className="w-full flex">
@@ -156,7 +158,7 @@ const Works: React.FC = () => {
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
