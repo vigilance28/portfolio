@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 absolute border opacity-100 bg-gradient-to-r shadow-md backdrop:blur-sm top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl `}
+            } p-6 absolute border opacity-100 bg-inherit/20 backdrop-blur-sm shadow-md top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl `}
           >
             <ul className=" list-none flex justify-end items-start flex-1 flex-col gap-4 ">
               {navLinks.map((nav) => (

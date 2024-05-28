@@ -13,7 +13,7 @@ import Works from "./components/Works";
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <div className=" relative-z0">
+      <div className=" relative-z-0">
         <div className="bg-cover bg-no-repeat bg-center">
           <Navbar />
           <Hero />
